@@ -1,0 +1,6 @@
+---
+- name： resolv
+  hosts: 10.66.100.145
+  tasks:
+  -  name: resolv configure
+     path: /etc/resolv.conf
