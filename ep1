@@ -1,16 +1,18 @@
 ---
-This is a playbook with 4 plays
-
-- name： resolv
+- name： This is a playbook with 4 plays
   hosts: 10.66.100.145
   tasks:
-  -  name: resolv configure
-     path: /etc/resolv.conf
+  -  name: 
+     
 
-- name： install
-  hosts: 10.66.100.145
-  tasks:
-  -  name: install apache
+
+  -  name: install software
      yum:
        name:httpd
        status:present
+       
+  -  name: service start
+     service:
+       name:httpd
+       enabled:true
+       
