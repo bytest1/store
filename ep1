@@ -2,17 +2,25 @@
 - name： This is a playbook with 4 plays
   hosts: 10.66.100.145
   tasks:
-  -  name: 
-     
+  - name: add a line
+    lineinfile:
+      path: /etc/resolv.conf
+      line: 'nameserver 202.102.192.69'
 
-
-  -  name: install software
+  -  name: install the latest version of Apache
      yum:
        name:httpd
-       status:present
+       state: latest
        
-  -  name: service start
+  -  name: Set vm.swappiness to 5 in /etc/sysctl.conf
+     sysctl:
+       name: kernel.panic
+       state: absent
+       sysctl_file: /etc/sysctl.conf
+     
+       
+  -  name: Start service httpd, if not started
      service:
        name:httpd
-       enabled:true
+       state: started
        
